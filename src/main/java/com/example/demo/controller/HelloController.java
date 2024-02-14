@@ -14,20 +14,22 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 public class HelloController {
+    private final GreetingService greetingService;
+
+    public HelloController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
 
     @GetMapping("/helloWorld")
     public String helloWorld() {
-        GreetingService greetingService = new GreetingService();
-        String msg =  greetingService.helloWorld();
-        return msg;
+        return greetingService.helloWorld();
+
     }
 
 
     @GetMapping("/hello")
     public String hello(@RequestParam(required = false, defaultValue = "test") String name, @RequestParam String age) {
-        GreetingService greetingService = new GreetingService();
-        String msg =  greetingService.hello(name, age);
-        return msg;
+        return greetingService.hello(name, age);
     }
 
 }
