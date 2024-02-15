@@ -15,16 +15,19 @@ public class SetterController {
     private GreetingService greetingService;
     private MathService mathService;
     private LombokMathService lombokMathService;
+
     @Autowired
     public void setGreetingService(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
+
     @Autowired
-    public void setMathService(MathService mathService){
+    public void setMathService(MathService mathService) {
         this.mathService = mathService;
     }
+
     @Autowired
-    public void setLombokMathService(LombokMathService lombokMathService){
+    public void setLombokMathService(LombokMathService lombokMathService) {
         this.lombokMathService = lombokMathService;
     }
 
@@ -32,21 +35,24 @@ public class SetterController {
     public String helloWorld() {
         return greetingService.helloWorld();
     }
+
     @GetMapping("/hello")
     public String hello(@RequestParam(required = false, defaultValue = "test") String name, @RequestParam String age) {
         return greetingService.hello(name, age);
     }
+
     @GetMapping("/minValue")
     public Integer minValue(@RequestParam int num1, @RequestParam int num2) {
         return mathService.minValue(num1, num2);
     }
+
     @GetMapping("/fizzBuzz")
-    public String fizzBuzz(@RequestParam int i){
+    public String fizzBuzz(@RequestParam int i) {
         return mathService.fizzBuzz(i);
     }
+
     @GetMapping("/maxValue")
     public Integer fieldMaxValue(@RequestParam int num1, @RequestParam int num2) {
         return lombokMathService.maxValue(num1, num2);
     }
-
 }

@@ -21,18 +21,22 @@ public class LombokController {
     public String helloWorld() {
         return greetingService.helloWorld();
     }
+
     @GetMapping("/hello")
     public String hello(@RequestParam(required = false, defaultValue = "test") String name, @RequestParam String age) {
         return greetingService.hello(name, age);
     }
+
     @GetMapping("/minValue")
     public Integer minValue(@RequestParam int num1, @RequestParam int num2) {
         return mathService.minValue(num1, num2);
     }
+
     @GetMapping("/fizzBuzz")
-    public String fizzBuzz(@RequestParam int i){
+    public String fizzBuzz(@RequestParam int i) {
         return mathService.fizzBuzz(i);
     }
+
     @GetMapping("/maxValue")
     public Integer fieldMaxValue(@RequestParam int num1, @RequestParam int num2) {
         return lombokMathService.maxValue(num1, num2);
