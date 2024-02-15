@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+
 public class MathService {
     public Integer minValue(int a, int b){
         return(a<b?a:b);

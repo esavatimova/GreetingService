@@ -23,9 +23,7 @@ public class HelloController {
     @GetMapping("/helloWorld")
     public String helloWorld() {
         return greetingService.helloWorld();
-
     }
-
 
     @GetMapping("/hello")
     public String hello(@RequestParam(required = false, defaultValue = "test") String name, @RequestParam String age) {

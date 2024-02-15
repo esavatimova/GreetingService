@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.service.GreetingService;
 import com.example.demo.service.LombokMathService;
 import com.example.demo.service.MathService;
+import org.springframework.context.ApplicationContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,11 +15,15 @@ public class ConstructorController {
     private final GreetingService greetingService;
     private final MathService mathService;
     private final LombokMathService lombokMathService;
+
     public ConstructorController(GreetingService greetingService, MathService mathService, LombokMathService lombokMathService) {
         this.greetingService = greetingService;
         this.mathService = mathService;
         this.lombokMathService = lombokMathService;
     }
+
+
+
 
     @GetMapping("/helloWorld")
     public String helloWorld() {
